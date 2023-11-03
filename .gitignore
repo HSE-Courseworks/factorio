@@ -1,3 +1,4 @@
-main.exe
-README.md
+/README.md
 /cmake-build-debug
+/main.exe
+/.idea

@@ -1,0 +1,14 @@
+cmake_minimum_required(VERSION 3.26)
+project(factorio)
+
+set(CMAKE_CXX_STANDARD 23)
+
+include_directories(utils/cell)
+include_directories(utils/ground)
+include_directories(utils/hero)
+include_directories(utils/map)
+include_directories(utils/object)
+
+add_executable(factorio
+        "main.cpp"
+)

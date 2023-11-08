@@ -2,3 +2,5 @@
 /cmake-build-debug
 /main.exe
 /.idea
+/.vscode
+/build

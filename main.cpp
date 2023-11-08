@@ -8,13 +8,15 @@
 #include "utils/hero/hero.cpp"
 #include "utils/map/map.cpp"
 #include "utils/object/object.cpp"
+#include "utils/item/item.cpp"
+#include "utils/inventory/inventory.cpp"
 
 using namespace std;
 
 
 int main(){
     srand(time(nullptr));
-    int h = 10, w = 10;
+    int h = 50, w = 50;
     Hero* hero = new Hero(h / 2, w/ 2);
     Map map(h, w, hero);
     map.generate();

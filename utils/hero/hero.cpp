@@ -4,6 +4,8 @@ Hero::Hero(int X, int Y){
     icon = '@';
     x = X;
     y = Y;
+
+    inventory = new Inventory(5);
 }
 
 void Hero::Move(char ch, std::optional<Cell**> cells, int h, int w){
@@ -42,4 +44,8 @@ int Hero::getX(){
 
 int Hero::getY(){
     return y;
+}
+
+Inventory* Hero::getInventory(){
+    return inventory;
 }

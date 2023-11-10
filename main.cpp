@@ -1,4 +1,5 @@
 #include <iostream>
+#include "windows.h"
 #include <optional>
 #include <ctime>
 #include <random>
@@ -12,7 +13,6 @@
 #include "utils/inventory/inventory.cpp"
 
 using namespace std;
-
 
 int main(){
     srand(time(nullptr));

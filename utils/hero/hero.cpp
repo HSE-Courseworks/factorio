@@ -44,6 +44,7 @@ int Hero::getX(){
 
 int Hero::getY(){
     return y;
+
 }
 
 Inventory* Hero::getInventory(){

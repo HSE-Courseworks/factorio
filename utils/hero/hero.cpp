@@ -1,11 +1,11 @@
 #include "hero.h"
 
-Hero::Hero(int X, int Y){
+Hero::Hero(int X, int Y, int inventorySize){
     icon = '@';
     x = X;
     y = Y;
 
-    inventory = new Inventory(5);
+    inventory = new Inventory(inventorySize);
 }
 
 void Hero::Move(char ch, std::optional<Cell**> cells, int h, int w){

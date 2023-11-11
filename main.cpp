@@ -16,8 +16,8 @@ using namespace std;
 
 int main(){
     srand(time(nullptr));
-    int h = 50, w = 50;
-    Hero* hero = new Hero(h / 2, w/ 2);
+    int h = 20, w = 20;
+    Hero* hero = new Hero(h / 2, w/ 2, 5);
     Map map(h, w, hero);
     map.generate();
     while(true){

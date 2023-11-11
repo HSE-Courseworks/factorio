@@ -19,7 +19,7 @@ private:
 
     Inventory* inventory;
 public:
-    Hero(int X, int Y);
+    Hero(int X, int Y, int inventorySize);
 
     void Move(char ch, std::optional<Cell**> cells, int h, int w);
 

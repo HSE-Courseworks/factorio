@@ -20,5 +20,6 @@ void Cell::removeObject(){
 }
 
 _Object* Cell::getObject(){
+    if(objects.size() == 0) return nullptr;
     return objects[objects.size() - 1];
 }

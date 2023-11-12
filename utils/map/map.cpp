@@ -45,4 +45,5 @@ void Map::render() {
         }
         std::cout << std::endl;
     }
+    hero->getInventory()->showItems();
 }

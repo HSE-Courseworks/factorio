@@ -1,4 +1,5 @@
 #include <iostream>
+#include "windows.h"
 #include <optional>
 #include <ctime>
 #include <random>
@@ -8,14 +9,15 @@
 #include "utils/hero/hero.cpp"
 #include "utils/map/map.cpp"
 #include "utils/object/object.cpp"
+#include "utils/item/item.cpp"
+#include "utils/inventory/inventory.cpp"
 
 using namespace std;
 
-
 int main(){
     srand(time(nullptr));
-    int h = 10, w = 10;
-    Hero* hero = new Hero(h / 2, w/ 2);
+    int h = 20, w = 20;
+    Hero* hero = new Hero(h / 2, w/ 2, 5);
     Map map(h, w, hero);
     map.generate();
     while(true){
@@ -35,3 +37,4 @@ int main(){
     }
     return 0;
 }
+

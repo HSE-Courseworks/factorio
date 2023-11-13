@@ -28,6 +28,9 @@ int main(){
             if(ch == 'x'){
                 break;
             }
+            if(std::isdigit(ch)){
+                hero->getInventory()->setActiveItem(ch - '0');
+            }
             hero->Move(ch, map.cells, h, w);
             system("cls");
             map.render();

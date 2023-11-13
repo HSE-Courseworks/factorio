@@ -38,7 +38,16 @@ void Inventory::showItems(){
         if (i % consoleWidth == 0 && i != 0) {
             std::cout << "\n";
         }
-        std::cout << items[i]->getIcon() << " ";
+        if(i == activeItem){
+            std::cout << "\033[1;34m" <<items[i]->getIcon() << "\033[0m"<<" ";
+        }else{
+            std::cout << items[i]->getIcon() << " ";
+        }
+        
     }
 
+}
+
+void Inventory::setActiveItem(char ch){
+    activeItem = int(ch) - 1;
 }

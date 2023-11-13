@@ -10,6 +10,8 @@ include_directories(utils/map)
 include_directories(utils/object)
 include_directories(utils/item)
 include_directories(utils/inventory)
+include_directories(utils/opt)
+
 
 add_executable(factorio
         "main.cpp"

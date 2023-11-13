@@ -9,7 +9,7 @@ Hero::Hero(int X, int Y, int inventorySize){
 }
 
 void Hero::Move(char ch, std::optional<Cell**> cells, int h, int w){
-    cells.value()[y][x].removeObject();
+    int exX = x, exY = y;
     switch (ch) {
         case 'a':
             if(x == 0){
@@ -36,6 +36,10 @@ void Hero::Move(char ch, std::optional<Cell**> cells, int h, int w){
             ++y;
             break;
     }
+    cells.value()[exY][exX].removeObject();
+    cells.value()[getY()][getX()].setObject(this);
+    ShowIcon(exY, exX, cells);
+    ShowIcon(getY(), getX(), cells);
 }
 
 int Hero::getX(){

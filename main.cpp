@@ -30,6 +30,7 @@ int main(){
             }
             if(std::isdigit(ch)){
                 hero->getInventory()->setActiveItem(ch - '0');
+
             }
             hero->Move(ch, map.cells, h, w);
             system("cls");

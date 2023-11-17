@@ -18,6 +18,7 @@ private:
     int y;
 
     Inventory* inventory;
+
 public:
     Hero(int X, int Y, int inventorySize);
 

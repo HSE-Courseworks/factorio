@@ -6,8 +6,7 @@ Inventory::Inventory(int size){
     
     for (int i = 0; i < size; i++)
     {
-        Item* item = new Item(0);
-        
+        Item* item = new Item(0);     
         items.push_back(item);
     }
     

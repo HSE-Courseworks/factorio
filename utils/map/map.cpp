@@ -38,9 +38,6 @@ void Map::generate() {
 void Map::render() {
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
-            if(i == hero->getY() && j == hero->getX()){
-                cells.value()[i][j].setObject(hero);
-            }
             std::cout << cells.value()[i][j].getIcon();
         }
         std::cout << std::endl;

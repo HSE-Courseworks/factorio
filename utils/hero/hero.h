@@ -6,6 +6,7 @@
 #include "../object/object.h"
 #include "../cell/cell.h"
 #include "../inventory/inventory.h"
+#include "../opt/opt.h"
 
 #include <optional>
 #include <iostream>

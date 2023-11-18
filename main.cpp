@@ -11,6 +11,7 @@
 #include "utils/object/object.cpp"
 #include "utils/item/item.cpp"
 #include "utils/inventory/inventory.cpp"
+#include "utils/opt/opt.cpp"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ int main(){
     Hero* hero = new Hero(h / 2, w/ 2, 5);
     Map map(h, w, hero);
     map.generate();
+    map.render();
     while(true){
 
         if(_kbhit()){
@@ -33,8 +35,6 @@ int main(){
 
             }
             hero->Move(ch, map.cells, h, w);
-            system("cls");
-            map.render();
         }
 
 

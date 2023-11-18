@@ -6,8 +6,12 @@
 #include "../object/object.h"
 
 class Item : public _Object{
+private:
+    int count;
 public:
-    Item();
+    Item(int cnt);
+
+    int getItemsCount();
 };
 
 #endif //FACTORIO_ITEM_H

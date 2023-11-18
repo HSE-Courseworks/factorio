@@ -10,9 +10,13 @@
 
 class Inventory{
 private:
+    int activeItem = -1;
+
     std::vector<Item*> items;
 public:
     Inventory(int size);
+
+    void setActiveItem(char ch);
 
     void showItems();
 };

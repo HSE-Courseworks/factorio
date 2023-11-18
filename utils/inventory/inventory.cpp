@@ -6,7 +6,7 @@ Inventory::Inventory(int size){
     
     for (int i = 0; i < size; i++)
     {
-        Item* item = new Item();
+        Item* item = new Item(0);     
         items.push_back(item);
     }
     
@@ -38,7 +38,16 @@ void Inventory::showItems(){
         if (i % consoleWidth == 0 && i != 0) {
             std::cout << "\n";
         }
-        std::cout << items[i]->getIcon() << " ";
+        if(i == activeItem){
+            std::cout << "\033[1;34m" <<items[i]->getIcon() << ":" << items[i]->getItemsCount() << "\033[0m"<<" ";
+        }else{
+            std::cout << items[i]->getIcon() << ":" << items[i]->getItemsCount() << " ";
+        }
+        
     }
 
+}
+
+void Inventory::setActiveItem(char ch){
+    activeItem = int(ch) - 1;
 }

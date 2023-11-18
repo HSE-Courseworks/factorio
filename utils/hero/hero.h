@@ -16,8 +16,9 @@ class Hero : public _Object{
 private:
     int x;
     int y;
+
     Inventory* inventory;
-  
+
 public:
     Hero(int X, int Y, int inventorySize);
 

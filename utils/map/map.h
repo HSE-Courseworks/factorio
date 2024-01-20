@@ -4,6 +4,7 @@
 #define _MAP_H
 
 #include "../hero/hero.h"
+#include "../ores/copper.h"
 
 #include <optional>
 
@@ -17,6 +18,7 @@ public:
     ~Map();
     void generate();
     void render();
+    void generateOres();
 };
 
 #endif //_MAP_H

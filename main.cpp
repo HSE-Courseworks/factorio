@@ -10,6 +10,7 @@
 #include "utils/map/map.cpp"
 #include "utils/object/object.cpp"
 #include "utils/item/item.cpp"
+#include "utils/item/copperItem.cpp"
 #include "utils/inventory/inventory.cpp"
 #include "utils/opt/opt.cpp"
 #include "utils/ores/ore.cpp"
@@ -37,6 +38,9 @@ int main(){
             if(std::isdigit(ch)){
                 hero->getInventory()->setActiveItem(ch - '0');
 
+            }
+            if(ch == 'e'){
+                hero->Dig(map.cells);
             }
             hero->Move(ch, map.cells, h, w);
             hero->getInventory()->showItems();

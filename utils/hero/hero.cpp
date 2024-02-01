@@ -42,6 +42,19 @@ void Hero::Move(char ch, std::optional<Cell**> cells, int h, int w){
     ShowIcon(getY(), getX(), cells);
 }
 
+void Hero::Dig(std::optional<Cell**> cells){
+    if(cells.value()[y][x].getObjectUnderHero() == '0'){\
+        CopperItem* copper = new CopperItem();
+        int place = inventory->findItem(copper);
+        if(place != -1){
+            inventory->IncreaseItemCount(place, 1);
+        }else {
+            inventory->setItemInInventory(copper);
+        }
+       
+    }
+}
+
 int Hero::getX(){
     return x;
 }

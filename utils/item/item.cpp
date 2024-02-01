@@ -1,10 +1,14 @@
 #include "item.h"
 
-Item::Item(int cnt) {
+Item::Item() {
     icon = 'T';
-    count = cnt;
+    count = 0;
 }
 
 int Item::getItemsCount(){
     return count;
+}
+
+void Item::IncreaseCount(int value){
+    this->count += value;
 }

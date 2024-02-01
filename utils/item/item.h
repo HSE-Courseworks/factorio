@@ -9,9 +9,11 @@ class Item : public _Object{
 private:
     int count;
 public:
-    Item(int cnt);
+    Item();
 
     int getItemsCount();
+
+    void IncreaseCount(int value);
 };
 
 #endif //FACTORIO_ITEM_H

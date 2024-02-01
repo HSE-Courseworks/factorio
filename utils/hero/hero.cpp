@@ -51,7 +51,15 @@ void Hero::Dig(std::optional<Cell**> cells){
         }else {
             inventory->setItemInInventory(copper);
         }
-       
+    }
+    else if(cells.value()[y][x].getObjectUnderHero() == '9'){\
+        IronItem* iron = new IronItem();
+        int place = inventory->findItem(iron);
+        if(place != -1){
+            inventory->IncreaseItemCount(place, 1);
+        }else {
+            inventory->setItemInInventory(iron);
+        }
     }
 }
 

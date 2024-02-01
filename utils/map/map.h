@@ -5,6 +5,7 @@
 
 #include "../hero/hero.h"
 #include "../ores/copper.h"
+#include "../ores/iron.h"
 
 #include <optional>
 

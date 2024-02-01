@@ -8,6 +8,7 @@
 #include "../inventory/inventory.h"
 #include "../opt/opt.h"
 #include "../item/copperItem.h"
+#include "../item/ironItem.h"
 
 
 #include <optional>

@@ -11,10 +11,13 @@
 #include "utils/object/object.cpp"
 #include "utils/item/item.cpp"
 #include "utils/item/copperItem.cpp"
+#include "utils/item/ironItem.cpp"
 #include "utils/inventory/inventory.cpp"
 #include "utils/opt/opt.cpp"
 #include "utils/ores/ore.cpp"
 #include "utils/ores/copper.cpp"
+#include "utils/ores/iron.cpp"
+
 
 using namespace std;
 

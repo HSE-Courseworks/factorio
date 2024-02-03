@@ -19,6 +19,12 @@ public:
     void setActiveItem(char ch);
 
     void showItems();
+
+    void setItemInInventory(Item* item);
+
+    int findItem(Item* item);
+
+    void IncreaseItemCount(int i, int value);
 };
 
 #endif

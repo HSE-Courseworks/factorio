@@ -6,7 +6,7 @@ Inventory::Inventory(int size){
     
     for (int i = 0; i < size; i++)
     {
-        Item* item = new Item(0);     
+        Item* item = new Item();     
         items.push_back(item);
     }
     
@@ -50,4 +50,30 @@ void Inventory::showItems(){
 
 void Inventory::setActiveItem(char ch){
     activeItem = int(ch) - 1;
+}
+
+void Inventory::setItemInInventory(Item* item){
+    int itemCount = items.size(); 
+    for (int i = 0; i < itemCount; i++)
+    {
+        if(items[i]->getItemsCount() == 0 && items[i]->getIcon() != item->getIcon()){
+            items[i] = item;
+            return;
+        }
+    }
+}
+
+int Inventory::findItem(Item* item){
+    int itemCount = items.size(); 
+    for (int i = 0; i < itemCount; i++)
+    {
+        if(items[i]->getIcon() == item->getIcon()){
+            return i;
+        }
+    }
+    return -1;
+}
+
+void Inventory::IncreaseItemCount(int i, int value){
+    items[i]->IncreaseCount(value);
 }

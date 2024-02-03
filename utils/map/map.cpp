@@ -1,6 +1,7 @@
 #include "map.h"
 #include <iostream>
 
+
 Map::Map(int h, int w, Hero* he) {
     height = h;
     width = w;
@@ -22,6 +23,7 @@ Map::~Map() {
 }
 
 
+// Generate
 void Map::generate() {
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
@@ -35,10 +37,39 @@ void Map::generate() {
 }
 
 
+// GenerateOres
+void Map::generateOres(){
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            auto copper = new Copper();
+            cells.value()[i][j].setObject(copper);
+        }
+        
+    }
+    for (int i = 5; i < 10; i++)
+    {
+        for (int j = 5; j < 10; j++)
+        {
+            auto iron = new Iron();
+            cells.value()[i][j].setObject(iron);
+        }
+        
+    }
+}
+
+
+// Render
 void Map::render() {
     for (int i = 0; i < height; ++i) {
         for (int j = 0; j < width; ++j) {
-            std::cout << cells.value()[i][j].getIcon();
+            if(cells.value()[i][j].getIcon() == '0'){
+                std::cout << "\033[1;33m" << cells.value()[i][j].getIcon() << "\033[0m";
+            }
+            else {
+                std::cout << cells.value()[i][j].getIcon();
+            }
         }
         std::cout << std::endl;
     }

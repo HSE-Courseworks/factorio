@@ -19,6 +19,8 @@ public:
 
     void removeObject();
 
+    char getObjectUnderHero();
+
     _Object* getObject();
 };
 

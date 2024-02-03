@@ -7,6 +7,9 @@
 #include "../cell/cell.h"
 #include "../inventory/inventory.h"
 #include "../opt/opt.h"
+#include "../item/copperItem.h"
+#include "../item/ironItem.h"
+
 
 #include <optional>
 #include <iostream>
@@ -24,6 +27,8 @@ public:
     Hero(int X, int Y, int inventorySize);
 
     void Move(char ch, std::optional<Cell**> cells, int h, int w);
+
+    void Dig(std::optional<Cell**> cells);
 
     Inventory* getInventory();
 

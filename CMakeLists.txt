@@ -11,6 +11,7 @@ include_directories(utils/object)
 include_directories(utils/item)
 include_directories(utils/inventory)
 include_directories(utils/opt)
+include_directories(utils/ores)
 
 
 add_executable(factorio

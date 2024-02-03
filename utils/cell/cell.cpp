@@ -19,6 +19,10 @@ void Cell::removeObject(){
     objects.pop_back();
 }
 
+char Cell::getObjectUnderHero(){
+    return objects[objects.size() - 2] -> getIcon();
+}
+
 _Object* Cell::getObject(){
     if(objects.size() == 0) return nullptr;
     return objects[objects.size() - 1];

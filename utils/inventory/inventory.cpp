@@ -45,7 +45,6 @@ void Inventory::showItems(){
         }
         
     }
-
 }
 
 void Inventory::setActiveItem(char ch){

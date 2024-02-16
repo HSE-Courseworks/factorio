@@ -6,6 +6,7 @@
 #include "../object/object.h"
 #include "../ground/ground.h"
 #include <vector>
+#include <iostream>
 
 class Cell {
     std::vector<_Object*> objects;
@@ -22,6 +23,8 @@ public:
     char getObjectUnderHero();
 
     _Object* getObject();
+
+    std::vector<_Object*> getObjects();
 };
 
 #endif //_CELL_H

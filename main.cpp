@@ -35,6 +35,7 @@
 // #include "utils/ores/iron.h"
 // #include "utils/gameManager/gameManager.h"
 
+
 using namespace std;
 
 int main(){
@@ -65,6 +66,7 @@ int main(){
             system("cls");
             map.render();
             gm->ShowInfo(); 
+
         }        
     }
     return 0;

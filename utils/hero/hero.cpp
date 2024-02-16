@@ -52,7 +52,7 @@ void Hero::Dig(std::optional<Cell**> cells){
             inventory->setItemInInventory(copper);
             int place = inventory->findItem(copper);
             inventory->IncreaseItemCount(place, 1);
-            
+
         }
     }
     else if(cells.value()[y][x].getObjectUnderHero() == '9'){\
@@ -64,6 +64,7 @@ void Hero::Dig(std::optional<Cell**> cells){
             inventory->setItemInInventory(iron);
             int place = inventory->findItem(iron);
             inventory->IncreaseItemCount(place, 1);
+
         }
     }
 }

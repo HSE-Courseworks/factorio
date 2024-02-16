@@ -1,0 +1,16 @@
+
+services:
+  web:
+    image: nginx
+    volumes:
+    - ./templates:/etc/nginx/templates
+    ports:
+    - "8000:80"
+    environment:
+    - NGINX_HOST=foobar.com
+    - NGINX_PORT=80
+
+  html:
+    build: ./docker
+    ports:
+    - 8080:8080

@@ -12,6 +12,8 @@ include_directories(utils/item)
 include_directories(utils/inventory)
 include_directories(utils/opt)
 include_directories(utils/ores)
+include_directories(utils/gameManager)
+
 
 
 add_executable(factorio

@@ -1,9 +1,6 @@
 .idea/
 .vscode/
 
-index.html
-index.js
-index.wasm
 raylib/
 
 README.md

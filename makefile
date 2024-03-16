@@ -1,29 +1,15 @@
-CC = g++
-CFLAGS = -std=c++20 -Iinclude -Isrc -g
-LDFLAGS =  -framework CoreVideo -framework IOKit -framework Cocoa -framework GLUT -framework OpenGL lib/libraylib.a
-PATH_LIBRARY = lib
+CC = emcc
+CFLAGS = -Wall -std=c++20 -D_DEFAULT_SOURCE -Wno-missing-braces -Wunused-result -Os -I. -I raylib/src -I raylib/src/external
+LDFLAGS = -L. -L raylib/src
+LIBS = -s USE_GLFW=3 -s ASYNCIFY -s TOTAL_MEMORY=67108864 -s FORCE_FILESYSTEM=1 --shell-file raylib/src/shell.html raylib/src/libraylib.a -DPLATFORM_WEB -s EXPORTED_RUNTIME_METHODS=ccall
 
-TARGET = main
-SOURCES = main.cpp \
-          utils/object/object.cpp \
-          utils/ground/ground.cpp \
-          utils/cell/cell.cpp \
-          utils/map/map.cpp \
-		  utils/hero/hero.cpp \
-		  utils/item/item.cpp \
-		  utils/item/copperItem.cpp \
-		  utils/item/ironItem.cpp \
-		  utils/inventory/inventory.cpp \
-		  utils/gameManager/gameManager.cpp
+all: clean index.html run
 
-OBJECTS = $(SOURCES:.cpp=.o)
-
-$(TARGET): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LDFLAGS) -o $(TARGET)
-
-.cpp.o:
-	$(CC) $(CFLAGS) $< -c -o $@
+index.html: src/main.cpp src/object.cpp src/hero.cpp src/map.cpp src/ground.cpp src/cell.cpp src/gameManager.cpp src/item.cpp src/inventory.cpp
+	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS) $(LIBS)
 
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+	rm -f *.js *.wasm index.html 
 
+run:
+	emrun index.html

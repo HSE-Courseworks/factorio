@@ -42,7 +42,6 @@ int main(){
         ClearBackground(WHITE);
         BeginMode2D(camera);
 
-
         map.draw();
 
 

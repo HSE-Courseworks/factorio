@@ -47,6 +47,7 @@ int main(){
 
 
         gm.detectCollision();
+        gm.Show();
         gm.Update();
 
 

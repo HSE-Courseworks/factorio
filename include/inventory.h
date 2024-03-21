@@ -15,7 +15,7 @@ private:
 public:
     Inventory(int size);
 
-    void setActiveItem();
+    void setActiveItem(int ch);
 
     void showItems(Vector2 cameraOffset);
 

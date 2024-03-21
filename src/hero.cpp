@@ -10,18 +10,20 @@ void Hero::Move(const Vector2& direction) {
 }
 
 void Hero::Update(){
+    inventory->setActiveItem(GetKeyPressed());
+    
     if (IsKeyDown(KEY_W)) {
-            Move({0, -1});
-        }
-        if (IsKeyDown(KEY_S)) {
-            Move({0, 1});
-        }
-        if (IsKeyDown(KEY_A)) {
-            Move({-1, 0});
-        }
-        if (IsKeyDown(KEY_D)) {
-            Move({1, 0});
-        }
+        Move({0, -1});
+    }
+    if (IsKeyDown(KEY_S)) {
+        Move({0, 1});
+    }
+    if (IsKeyDown(KEY_A)) {
+        Move({-1, 0});
+    }
+    if (IsKeyDown(KEY_D)) {
+        Move({1, 0});
+    }
 }
 
 void Hero::setInventory(int size){

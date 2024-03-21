@@ -6,6 +6,8 @@
 #include "map.h"
 #include "hero.h"
 
+#include "../raylib/src/raylib.h"
+
 class GameManager{
 private:
     Hero* hero;
@@ -17,6 +19,8 @@ public:
     void detectCollision();
 
     void Update();
+
+    void Show();
 };
 
 #endif

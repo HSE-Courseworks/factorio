@@ -36,8 +36,8 @@ void GameManager::Show(){
 
     auto objects = map->getCells()[i][j].getObjects();
 
-    int x = hero->getPosition().x + 600;
-    int y = hero->getPosition().y - 320; 
+    int x = hero->getPosition().x + 500;
+    int y = hero->getPosition().y - 320;
 
     for (int i = 0; i < objects.size(); i++)
     {

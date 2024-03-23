@@ -14,7 +14,7 @@
 int main(){
     InitWindow(1920, 1080, "Factorio");
     HideCursor();
-    SetTargetFPS(60);
+    SetTargetFPS(360);
     
     Hero hero = Hero(1920 / 2.0f, 1080 / 2.0f, 15, 15, '@', BLUE);
     hero.setInventory(5);

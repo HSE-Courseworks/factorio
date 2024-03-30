@@ -1,7 +1,8 @@
-/README.md
-/cmake-build-debug
-/main.exe
-/.idea
-/.vscode
-/build
+.idea/
+.vscode/
 
+raylib/
+
+README.md
+
+.DS_Store

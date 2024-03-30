@@ -3,22 +3,21 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 
-#include "../item/item.h"
+#include "../raylib/src/raylib.h"
+#include "item.h"
 
-#include <iostream>
 #include <vector>
 
 class Inventory{
 private:
     int activeItem = -1;
-
     std::vector<Item*> items;
 public:
     Inventory(int size);
 
-    void setActiveItem(char ch);
+    void setActiveItem();
 
-    void showItems();
+    void showItems(Vector2 cameraOffset);
 
     void setItemInInventory(Item* item);
 

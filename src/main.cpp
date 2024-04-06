@@ -14,7 +14,7 @@
 int main(){
     InitWindow(1920, 1080, "Factorio");
     HideCursor();
-    SetTargetFPS(60);
+    SetTargetFPS(144);
     
     Hero hero = Hero(1920 / 2.0f, 1080 / 2.0f, 15, 15, '@', BLUE);
     hero.setInventory(5);
@@ -42,16 +42,16 @@ int main(){
         ClearBackground(WHITE);
         BeginMode2D(camera);
 
-
         map.draw();
 
 
         gm.detectCollision();
+        gm.Show();
         gm.Update();
 
 
-        hero.Update();
-        hero.Draw();
+        // hero.Update();
+        // hero.Draw();
 
 
         EndMode2D();

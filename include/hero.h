@@ -5,6 +5,11 @@
 
 #include "object.h"
 #include "inventory.h"
+#include "cell.h"
+#include "ironItem.h"
+#include "copperItem.h"
+
+#include "../raylib/src/raylib.h"
 
 class Hero : public Object{
 public:
@@ -17,6 +22,8 @@ public:
     void Update();
 
     void setInventory(int size);
+
+    void Dig(Cell** cells);
 
     Inventory* getInventory();
 private:

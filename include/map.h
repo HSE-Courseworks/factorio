@@ -6,6 +6,7 @@
 #include "cell.h"
 #include "hero.h"
 #include "iron.h"
+#include "copper.h"
 
 #include <vector>
 

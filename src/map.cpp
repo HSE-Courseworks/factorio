@@ -36,7 +36,12 @@ void Map::draw(){
     {
         for (int j = 0; j < width; j++)
         {
-            cells[i][j].getObject()->draw();
+            auto objects = cells[i][j].getObjects();
+            for (int k = 0; k < objects.size(); k++)
+            {
+                objects[k].draw();
+            }
+            
         }
     }
 }
@@ -59,6 +64,16 @@ void Map::generateOres(){
         for (int j = 10; j < 20; j++)
         {
             Iron iron = Iron((j * 40), (i * 40), 39, 39, 'i', GRAY);
+            cells[i][j].setObject(iron);
+        }
+        
+    }
+
+    for (int i = 20; i < 30; i++)
+    {
+        for (int j = 20; j < 30; j++)
+        {
+            Copper iron = Copper((j * 40), (i * 40), 39, 39, 'c', ORANGE);
             cells[i][j].setObject(iron);
         }
         

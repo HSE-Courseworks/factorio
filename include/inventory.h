@@ -15,7 +15,7 @@ private:
 public:
     Inventory(int size);
 
-    void setActiveItem();
+    void setActiveItem(int ch);
 
     void showItems(Vector2 cameraOffset);
 
@@ -23,7 +23,7 @@ public:
 
     int findItem(Item* item);
 
-    void IncreaseItemCount(int i, int value);
+    void IncreaseItemCount(int i);
 };
 
 #endif

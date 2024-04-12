@@ -28,7 +28,7 @@ int main(){
     camera.zoom = 1.0f;
 
 
-    Map map = Map(200, 200);
+    Map map = Map(100, 100);
     map.generate();
     map.generateOres();
     
@@ -44,15 +44,12 @@ int main(){
 
         map.draw();
 
-
         gm.detectCollision();
         gm.Show();
         gm.Update();
 
-
         // hero.Update();
         // hero.Draw();
-
 
         EndMode2D();
         EndDrawing();

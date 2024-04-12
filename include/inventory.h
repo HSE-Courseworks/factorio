@@ -24,6 +24,10 @@ public:
     int findItem(Item* item);
 
     void IncreaseItemCount(int i);
+
+    Item* getActiveItem();
+
+    void decreaseItemCount();
 };
 
 #endif

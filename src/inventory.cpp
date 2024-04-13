@@ -61,5 +61,16 @@ void Inventory::IncreaseItemCount(int i){
     items[i]->IncreaseCount();
 }
 
+Item* Inventory::getActiveItem(){
+    if(items[activeItem]->getIcon() == 't' || items[activeItem]->GetCount() == 0){
+        return nullptr;
+    }
+    return items[activeItem];
+}
 
-
+void Inventory::decreaseItemCount(){
+    items[activeItem]->decreaseCount();
+    if (items[activeItem]->GetCount() == 0){
+        items[activeItem] = new Item(15, 15, 't', BLACK); 
+    }
+}

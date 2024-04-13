@@ -7,3 +7,7 @@ int Item::GetCount(){
 void Item::IncreaseCount(){
     this->count++;
 }
+
+void Item::decreaseCount(){
+    this->count--;
+}

@@ -26,6 +26,10 @@ public:
     void Dig(Cell** cells);
 
     Inventory* getInventory();
+
+    void Drop(Cell** cells);
+
+
 private:
     Inventory* inventory;
 

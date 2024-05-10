@@ -15,6 +15,10 @@ void GameManager::Update() {
         hero->Dig(map->getCells());
     }
 
+    if(IsKeyPressed(KEY_Q)){
+        hero->Drop(map->getCells());
+    }
+
     hero->Draw();
 
     // Получаем позицию персонажа
@@ -51,7 +55,7 @@ void GameManager::Show(){
     {
         std::stringstream ss;
 
-        ss << objects[i].getIcon();
+        ss << objects[i]->getIcon();
         
         DrawText(ss.str().c_str(), x, y, 28, WHITE);
         y += 28;

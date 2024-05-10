@@ -13,6 +13,8 @@ public:
 
     int GetCount();
 
+    void decreaseCount();
+
     void IncreaseCount();
 };
 

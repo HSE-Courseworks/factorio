@@ -8,6 +8,7 @@
 #include "cell.h"
 #include "ironItem.h"
 #include "copperItem.h"
+#include "belt.h"
 
 #include "../raylib/src/raylib.h"
 
@@ -29,6 +30,9 @@ public:
 
     void Drop(Cell** cells);
 
+    void PlaceItems(Cell** cells, std::vector<Belt*>& belts);
+
+    void PickItem();
 
 private:
     Inventory* inventory;

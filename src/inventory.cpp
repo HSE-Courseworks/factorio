@@ -17,14 +17,43 @@ void Inventory::showItems(Vector2 target) {
 
     for (int i = 0; i < items.size(); i++) {
         std::stringstream text;
-        if (i == activeItem){
-            text << items[i]->getIcon() << ':' << items[i]->GetCount() << ' ';
-            DrawText(text.str().c_str(), x, y, 28, WHITE);
+
+        if(items[i]->getIcon() == 'i'){
+            if(i == activeItem){
+                DrawRectangle(x, y, 24, 24, WHITE);
+                text << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x + 28, y, 28, WHITE); 
+            } else {
+                DrawRectangle(x, y, 24, 24, GRAY);
+                text << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x + 28, y, 28, GRAY); 
+            }
+        } else if(items[i]->getIcon() == 'c'){
+            if(i == activeItem){
+                DrawRectangle(x, y, 24, 24, WHITE);
+                text << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x + 28, y, 28, WHITE); 
+            } else {
+                DrawRectangle(x, y, 24, 24, ORANGE);
+                text << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x + 28, y, 28, ORANGE); 
+            }
         } else {
-            text << items[i]->getIcon() << ':' << items[i]->GetCount() << ' ';
-            DrawText(text.str().c_str(), x, y, 28, items[i]->getColor());
+            if(i == activeItem){
+                text << items[i]->getIcon() << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x, y, 28, WHITE);
+            } else {
+                text << items[i]->getIcon() << ':' << items[i]->GetCount() << ' ';
+                DrawText(text.str().c_str(), x, y, 28, BLACK);
+            }
         }
-        x += 45;
+        // if (i == activeItem){
+        //     
+        // } else {
+        //     text << items[i]->getIcon() << ':' << items[i]->GetCount() << ' ';
+        //     DrawText(text.str().c_str(), x, y, 28, items[i]->getColor());
+        // }
+        x += 55;
     }
 }
 

@@ -71,7 +71,7 @@ void Hero::Drop(Cell** cells){
         return;
     }
 
-    auto newItem = new Object(this->position.x, this->position.y, 20, 20, activeItem->getIcon(), activeItem->getColor());
+    auto newItem = new Object(j * 40 + 10, i * 40 + 10, 20, 20, activeItem->getIcon(), activeItem->getColor());
 
     // activeItem->object.x = this->position.x;
     // activeItem->object.y = this->position.y;
@@ -81,4 +81,21 @@ void Hero::Drop(Cell** cells){
     cells[i][j].setObject(newItem);
 
     inventory->decreaseItemCount();
+}
+
+void Hero::PlaceItems(Cell** cells, std::vector<Belt*>& belts) {
+    int j = std::floor(this->position.x / 40);
+    int i = std::floor(this->position.y / 40) - 1;
+    if(IsKeyPressed(KEY_C)) {
+        auto belt = new Belt(j * 40 + 5, i * 40 + 5, 30, 30, 'b', BLUE, 'u');
+        cells[i][j].setObject(belt);
+        belts.push_back(belt);
+    }
+}
+
+void Hero::PickItem(){
+    int j = std::floor(this->position.x / 40);
+    int i = std::floor(this->position.y / 40);
+
+
 }

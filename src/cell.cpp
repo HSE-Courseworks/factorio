@@ -17,8 +17,10 @@ void Cell::setObject(Object* object) {
 }
 
 void Cell::removeObject(){
+    if(objects.empty()){
+        return;
+    }
     objects.pop_back();
-
 }
 
 Object* Cell::getObjectUnderHero(){

@@ -2,14 +2,19 @@
 #include <string>
 #include <sstream>
 
+using namespace std;
+
 GameManager::GameManager(Map* m, Hero* h, Camera2D* c){
     map = m;
     hero = h;
     cam = c;
+    // belts = std::vector<Belt*>();
 }
 
 void GameManager::Update() {
     hero->Update();
+    BeltsAction();
+    hero->PlaceItems(map->getCells(), belts);
 
     if(IsKeyPressed(KEY_E)){
         hero->Dig(map->getCells());
@@ -29,6 +34,8 @@ void GameManager::Update() {
     cam->target.y = heroPosition.y;
 
     hero->getInventory()->showItems(cam->target);
+
+    
 }
 
 void GameManager::detectCollision(){
@@ -51,6 +58,15 @@ void GameManager::Show(){
     int x = hero->getPosition().x + 600;
     int y = hero->getPosition().y - 320; 
 
+    // int x = GetScreenWidth();
+    // int y = GetScreenWidth();
+
+    // map->getCells()[1080 / 40][1920 / 40].getObject()->setColor(RED);
+    
+
+    // double x = hero->getPosition().x + GetScreenWidth() / 4;
+    // double y = hero->getPosition().y + GetScreenHeight()/ 4; 
+
     for (int i = 0; i < objects.size(); i++)
     {
         std::stringstream ss;
@@ -62,3 +78,35 @@ void GameManager::Show(){
     }
 }
 
+void GameManager::BeltsAction() {
+    if (belts.empty())
+    {
+        return;
+    }
+    
+    for (auto &belt : belts)
+    {
+        belt->Action(map->getCells());
+    }
+    
+}
+
+void GameManager::PrintMap() {
+    int j = std::floor(hero->getPosition().x / 40);
+    int i = std::floor(hero->getPosition().y / 40);
+
+    for (int a = -10; a < 10; a++)
+    {
+        for (int b = -10; b < 10; b++)
+        {
+            if(i + a < 0 || j + a < 0) {
+                return;
+            }
+            auto objects = map->getCells()[i + a][j + b].getObjects();
+            for (auto &obj : objects)
+            {
+                obj->draw();
+            }
+        }
+    }
+}

@@ -3,6 +3,8 @@
 
 raylib/
 
-README.md
+*.wasm
+*.js
+*.html
 
 .DS_Store

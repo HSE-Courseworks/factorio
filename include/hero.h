@@ -5,6 +5,12 @@
 
 #include "object.h"
 #include "inventory.h"
+#include "cell.h"
+#include "ironItem.h"
+#include "copperItem.h"
+#include "belt.h"
+
+#include "../raylib/src/raylib.h"
 
 class Hero : public Object{
 public:
@@ -18,7 +24,16 @@ public:
 
     void setInventory(int size);
 
+    void Dig(Cell** cells);
+
     Inventory* getInventory();
+
+    void Drop(Cell** cells);
+
+    void PlaceItems(Cell** cells, std::vector<Belt*>& belts);
+
+    void PickItem();
+
 private:
     Inventory* inventory;
 

@@ -7,3 +7,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
+    volumes:
+    #  - ./src:/src
+     # - ./include:/include
+      - ./docker:/src

@@ -8,6 +8,8 @@
 
 #include "../raylib/src/raylib.h"
 
+using namespace std;
+
 class GameManager{
 private:
     Hero* hero;

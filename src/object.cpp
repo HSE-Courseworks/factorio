@@ -10,7 +10,7 @@ Object::Object(float x, float y, int h, int w, char ic, Color col) {
     width = w;
     icon = ic;
     color = col;
-    
+
     this->object.height = h;
     this->object.width = w;
     this->object.x = x;
@@ -22,7 +22,7 @@ Vector2 Object::getPosition() {
 }
 
 Vector2 Object::getSize() {
-    return Vector2 {float(height), float(width)};
+    return Vector2 {static_cast<float>(height), static_cast<float>(width)};
 }
 
 Color Object::getColor() {
@@ -34,6 +34,6 @@ void Object::draw() {
     DrawRectangleRec(object, color);
 }
 
-void Object::setColor(Color col){
+void Object::setColor(Color col) {
     this->color = col;
 }

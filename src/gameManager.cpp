@@ -2,8 +2,6 @@
 #include <string>
 #include <sstream>
 
-using namespace std;
-
 GameManager::GameManager(Map* m, Hero* h, Camera2D* c) {
     map = m;
     hero = h;

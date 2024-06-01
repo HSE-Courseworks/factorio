@@ -9,9 +9,9 @@ void Hero::Move(const Vector2& direction) {
     position.y += direction.y * speed;
 }
 
-void Hero::Update(){
+void Hero::Update() {
     inventory->setActiveItem(GetKeyPressed());
-    
+
     if (IsKeyDown(KEY_W)) {
         Move({0, -1});
     }
@@ -26,32 +26,32 @@ void Hero::Update(){
     }
 }
 
-void Hero::setInventory(int size){
+void Hero::setInventory(int size) {
     inventory = new Inventory(size);
 }
 
-Inventory* Hero::getInventory(){
+Inventory* Hero::getInventory() {
     return inventory;
 }
 
-void Hero::Dig(Cell** cells){
+void Hero::Dig(Cell** cells) {
     int j = std::floor(this->position.x / 40);
     int i = std::floor(this->position.y / 40);
 
-    if(cells[i][j].getIcon() == 'I'){
+    if (cells[i][j].getIcon() == 'I') {
         IronItem* iron = new IronItem(28, 28, 'i', GRAY);
         int place = inventory->findItem(iron);
-        if(place != -1){
+        if (place != -1) {
             inventory->IncreaseItemCount(place);
         } else {
             inventory->setItemInInventory(iron);
             place = inventory->findItem(iron);
             inventory->IncreaseItemCount(place);
         }
-    } else if (cells[i][j].getIcon() == 'C'){
+    } else if (cells[i][j].getIcon() == 'C') {
         CopperItem* copper = new CopperItem(28, 28, 'c', ORANGE);
         int place = inventory->findItem(copper);
-        if(place != -1){
+        if (place != -1) {
             inventory->IncreaseItemCount(place);
         } else {
             inventory->setItemInInventory(copper);
@@ -61,17 +61,18 @@ void Hero::Dig(Cell** cells){
     }
 }
 
-void Hero::Drop(Cell** cells){
+void Hero::Drop(Cell** cells) {
     int j = std::floor(this->position.x / 40);
     int i = std::floor(this->position.y / 40);
 
     Item* activeItem = inventory->getActiveItem();
 
-    if(activeItem == nullptr) {
+    if (activeItem == nullptr) {
         return;
     }
 
-    auto newItem = new Object(this->position.x, this->position.y, 20, 20, activeItem->getIcon(), activeItem->getColor());
+    auto newItem = new Object(j * 40 + 10, i * 40 + 10, 20, 20,
+    activeItem->getIcon(), activeItem->getColor());
 
     // activeItem->object.x = this->position.x;
     // activeItem->object.y = this->position.y;
@@ -81,4 +82,19 @@ void Hero::Drop(Cell** cells){
     cells[i][j].setObject(newItem);
 
     inventory->decreaseItemCount();
+}
+
+void Hero::PlaceItems(Cell** cells, std::vector<Belt*>& belts) {
+    int j = std::floor(this->position.x / 40);
+    int i = std::floor(this->position.y / 40) - 1;
+    if (IsKeyPressed(KEY_C)) {
+        auto belt = new Belt(j * 40 + 5, i * 40 + 5, 30, 30, 'b', BLUE, 'u');
+        cells[i][j].setObject(belt);
+        belts.push_back(belt);
+    }
+}
+
+void Hero::PickItem() {
+    int j = std::floor(this->position.x / 40);
+    int i = std::floor(this->position.y / 40);
 }

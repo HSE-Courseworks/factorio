@@ -16,20 +16,22 @@ void Cell::setObject(Object* object) {
     objects.push_back(object);
 }
 
-void Cell::removeObject(){
+void Cell::removeObject() {
+    if (objects.empty()) {
+        return;
+    }
     objects.pop_back();
-
 }
 
-Object* Cell::getObjectUnderHero(){
+Object* Cell::getObjectUnderHero() {
     return objects[objects.size() - 2];
 }
 
-Object* Cell::getObject(){
-    if(objects.size() == 0) return nullptr;
+Object* Cell::getObject() {
+    if (objects.size() == 0) return nullptr;
     return objects[objects.size() - 1];
 }
 
-std::vector<Object*> Cell::getObjects(){
+std::vector<Object*> Cell::getObjects() {
     return objects;
 }

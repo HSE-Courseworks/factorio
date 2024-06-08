@@ -1,15 +1,7 @@
 CC = emcc
-CFLAGS = -Wall -std=c++20 -D_DEFAULT_SOURCE -Wno-missing-braces -Wunused-result -Os -I. -I raylib/src -I raylib/src/external
-LDFLAGS = -L. -L raylib/src
-LIBS = -s USE_GLFW=3 -s ASYNCIFY -s TOTAL_MEMORY=67108864 -s FORCE_FILESYSTEM=1 --shell-file raylib/src/shell.html raylib/src/libraylib.a -DPLATFORM_WEB -s EXPORTED_RUNTIME_METHODS=ccall
+CFLAGS = -I/raylib/src -L/raylib/src -lraylib -s USE_GLFW=3 -s FULL_ES2=1 -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 --preload-file .
+SOURCES = src/main.cpp src/object.cpp src/hero.cpp src/map.cpp src/ground.cpp src/cell.cpp src/gameManager.cpp src/item.cpp src/inventory.cpp
+TARGET = index.html
 
-all: clean index.html run
-
-index.html: src/main.cpp src/object.cpp src/hero.cpp src/map.cpp src/ground.cpp src/cell.cpp src/gameManager.cpp src/item.cpp src/inventory.cpp
-	$(CC) -o $@ $^ $(CFLAGS) $(LDFLAGS) $(LIBS)
-
-clean:
-	rm -f *.js *.wasm index.html 
-
-run:
-	emrun index.html
+all:
+	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)

@@ -1,13 +1,9 @@
 version: '3'
 
 services:
-  factorio:
-    build:
-      context: ./docker
-      dockerfile: Dockerfile
+  web:
+    build: .
     ports:
       - "80:80"
     volumes:
-    #  - ./src:/src
-     # - ./include:/include
-      - ./docker:/src
+      - .:/app

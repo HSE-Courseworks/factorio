@@ -1,13 +1,13 @@
 #include "../include/item.h"
 
-int Item::GetCount(){
+int Item::GetCount() {
     return this->count;
 }
 
-void Item::IncreaseCount(){
+void Item::IncreaseCount() {
     this->count++;
 }
 
-void Item::decreaseCount(){
+void Item::decreaseCount() {
     this->count--;
 }

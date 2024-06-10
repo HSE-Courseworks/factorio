@@ -16,7 +16,6 @@ void Inventory::showItems(Vector2 target) {
 
     for (int i = 0; i < items.size(); i++) {
         std::stringstream text;
-
         if (items[i]->getIcon() == 'i') {
             if (i == activeItem) {
                 DrawRectangle(x, y, 24, 24, WHITE);

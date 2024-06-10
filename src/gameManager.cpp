@@ -2,7 +2,9 @@
 #include <string>
 #include <sstream>
 
-GameManager::GameManager(Map* m, Hero* h, Camera2D* c) {
+using namespace std;
+
+GameManager::GameManager(Map* m, Hero* h, Camera2D* c){
     map = m;
     hero = h;
     cam = c;
@@ -32,6 +34,8 @@ void GameManager::Update() {
     cam->target.y = heroPosition.y;
 
     hero->getInventory()->showItems(cam->target);
+
+    
 }
 
 void GameManager::detectCollision() {
@@ -52,7 +56,7 @@ void GameManager::Show() {
 
     int x = hero->getPosition().x + 600;
     int y = hero->getPosition().y - 320;
-
+  
     for (int i = 0; i < objects.size(); i++) {
         std::stringstream ss;
 
@@ -76,7 +80,6 @@ void GameManager::BeltsAction() {
 void GameManager::PrintMap() {
     int j = std::floor(hero->getPosition().x / 40);
     int i = std::floor(hero->getPosition().y / 40);
-
     for (int a = -10; a < 10; a++) {
         for (int b = -10; b < 10; b++) {
             if (i + a < 0 || j + a < 0) {

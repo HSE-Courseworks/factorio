@@ -8,7 +8,6 @@ void Belt::Action(Cell** cells) {
     int j = std::floor(position.x/ 40);
     int i = std::floor(position.y / 40);
     Object* obj = cells[i][j].getObject();
-
     if (obj->getIcon() == 'b' || obj->getIcon() == '#') {
         return;
     }
